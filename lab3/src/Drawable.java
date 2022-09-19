@@ -1,3 +1,3 @@
 public interface Drawable {
-    public Shape draw();
+    public void draw();
 }
