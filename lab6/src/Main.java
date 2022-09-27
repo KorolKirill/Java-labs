@@ -61,6 +61,8 @@ class Program {
         System.out.println( word+" - "+translation+ " pair was added successfully!");
 
     }
+
+
     private UserAction askAction() {
         System.out.println("What to do next? Input a number: 0 - add pair, 1- translate sentence, 2 - terminate");
         String input = scanner.nextLine();

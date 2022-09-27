@@ -8,24 +8,23 @@ import java.util.function.Predicate;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Lab 1, task 8");
+        System.out.println("Lab 1, task 4");
         System.out.println("Enter a text:");
         String text = scanner.nextLine();
-        System.out.println("Result is: " + Function(text).toString());
+        System.out.println("Result is: " + Function7(text).toString());
         // test data = aaaaa a abc cba dddascxas opd hello why
     }
 
     private static Iterable<String> Function(String text) {
         var resultArr = new ArrayList<String>();
-        for (String word: text.split(" ")) {
+        for (String word : text.split(" ")) {
             if (word.length() == 1) {
                 resultArr.add(word);
-            }
-            else {
+            } else {
                 var wordCharsArr = word.toCharArray();
                 boolean passed = true;
-                for (int i = 1; i <word.length(); i++) {
-                    if (wordCharsArr[i-1] > wordCharsArr[i]) {
+                for (int i = 1; i < word.length(); i++) {
+                    if (wordCharsArr[i - 1] > wordCharsArr[i]) {
                         passed = false;
                         break;
                     }
@@ -40,17 +39,21 @@ public class Main {
 
     private static Iterable<String> Function7(String text) {
         var resultArr = new ArrayList<String>();
-        Predicate<String> filter = x -> {
+        Predicate<String> filter = (x) -> {
+            if (x.length() == 1) {
+                return true;
+            }
+
             var wordCharsArr = x.toCharArray();
-            for (int i = 1; i <x.length(); i++) {
-                if (wordCharsArr[i-1] < wordCharsArr[i]) {
-                    return false;
+            for (int i = 1; i < x.length(); i++) {
+                if (wordCharsArr[i - 1] < wordCharsArr[i]) {
+                     return  false;
                 }
             }
             return true;
         };
         return Arrays.stream(text.split(" "))
-                .filter(word -> word.length() ==1)
-                .filter(filter).toList();
+                .filter(filter)
+                .toList();
     }
 }

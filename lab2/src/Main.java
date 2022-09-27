@@ -85,7 +85,7 @@ class Program {
             int month = Integer.valueOf(scanner.nextLine());
             System.out.println("What's the day? Enter number.");
             int day = Integer.valueOf(scanner.nextLine());
-            return new Date(year, month, day);
+            return new Date(year-1900, month, day);
         }
         catch (Exception e) {
             System.out.println("Birth is not correct, try again...");
