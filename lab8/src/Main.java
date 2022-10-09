@@ -8,7 +8,8 @@ public class Main {
         System.out.println("Started: ");
 
         timeStart = System.currentTimeMillis();
-        int thCount = 8;
+
+        int thCount = 4;
         long iterations = 100_000_000l;
         double res = calc.findPI(iterations, thCount);
         long time = System.currentTimeMillis() - timeStart;
@@ -60,7 +61,6 @@ class ParallelMonteCarloPi {
             try {
                 thread.join();
                 result = result == 0 ? thread.getResult() : (result + thread.getResult()) / 2 ;
-                System.out.println(thread.getResult());
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -81,18 +81,11 @@ class ParallelMonteCarloPi {
 
         @Override
         public void run() {
-//            averageResult = 0;
-//            for (long i = 1; i <= this.iterations; i++) {
-//                Point point = new Point(Math.random(), Math.random());
-//                averageResult = (averageResult + point.calculateLength()) / i;
-//                ;
-//            }
             long counterSuccess = 0;
             for (long i = 1; i <= this.iterations; i++) {
                 Point point = new Point(Math.random(), Math.random());
                 if (point.calculateLength() <= 1) {
                     counterSuccess++;
-
                 }
             }
             result = (double) counterSuccess / iterations;

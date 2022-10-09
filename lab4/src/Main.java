@@ -50,7 +50,8 @@ class ModuleTests {
         for (int i = 0; i < 5; i++) {
             try {
                 vehicle.getIn(new Person());
-            } catch (MaxSitsException e) {
+            }
+            catch (MaxSitsException e) {
                 System.out.println("Test 3 passed successfully, MaxSitsException was thrown.");
                 break;
             } catch (PassengerIsNotSupportedException | PassengerAlreadySeatingException e) {
@@ -85,8 +86,8 @@ class ModuleTests {
         System.out.println("Test 5, cars on road:" + road.carsInRoad.size());
         System.out.println("Test 5, people on road:" + road.getCountOfHumans());
         System.out.println("Test 5 passed successfully");
-
     }
+
     private Car getRandomCar() {
         var car = new Car((int) Math.floor(Math.random()*5+1));
         for (int i = 0; i < Math.floor(Math.random()*car.getTotalSeats()+1); i++) {

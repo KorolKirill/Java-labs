@@ -38,7 +38,6 @@ public class Main {
     }
 
     private static Iterable<String> Function7(String text) {
-        var resultArr = new ArrayList<String>();
         Predicate<String> filter = (x) -> {
             if (x.length() == 1) {
                 return true;
@@ -52,6 +51,7 @@ public class Main {
             }
             return true;
         };
+
         return Arrays.stream(text.split(" "))
                 .filter(filter)
                 .toList();

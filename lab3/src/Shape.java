@@ -1,4 +1,6 @@
-public abstract class Shape implements Drawable {
+import java.io.Serializable;
+
+public abstract class Shape implements Drawable, Serializable {
     protected String shapeColor;
 
     @Override

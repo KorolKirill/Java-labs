@@ -54,6 +54,7 @@ class Car extends Vehicle {
     }
 }
 class PoliceCar extends Car {
+
     @Override
     public void getIn(Person person) throws MaxSitsException, PassengerIsNotSupportedException, PassengerAlreadySeatingException {
         if (!(person instanceof Policeman)) {
